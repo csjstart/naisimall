@@ -1,0 +1,20 @@
+package com.chen.naisimall.product.feign;
+
+import com.chen.common.to.es.SkuEsModel;
+import com.chen.common.utils.R;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
+
+/**
+ * @author woita
+ */
+@FeignClient("naisimall-search")
+public interface SearchFeignService {
+
+    @PostMapping("/search/save/product")
+    R productStatusUp(@RequestBody List<SkuEsModel> skuEsModels);
+
+    }

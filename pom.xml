@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chen.naisimall</groupId>
+    <artifactId>naisimall</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>naisimall</name>
+    <description>聚合服务</description>
+    <packaging>pom</packaging>
+    <modules>
+        <module>naisimall-cart</module>
+        <module>naisimall-auth-server</module>
+        <module>naisimall-third-party</module>
+        <module>renren-fast</module>
+        <module>naisimall-common</module>
+        <module>naisimall-order</module>
+        <module>naisimall-ware</module>
+        <module>naisimall-member</module>
+        <module>naisimall-coupon</module>
+        <module>naisimall-product</module>
+
+        <module>naisimall-search</module>
+
+        <module>naisimall-gateway</module>
+        <module>renren-generator</module>
+    </modules>
+
+    <properties>
+        <spring.boot.version>2.2.5.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR3</spring.cloud.version>
+        <cloud.alibaba.version>2.2.1.RELEASE</cloud.alibaba.version>
+        <elasticsearch.version>7.4.2</elasticsearch.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- 重写覆盖 spring-boot-dependencies 中的依赖版本  -->
+            <!-- 重写覆盖 spring-boot-dependencies 中的依赖版本  -->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

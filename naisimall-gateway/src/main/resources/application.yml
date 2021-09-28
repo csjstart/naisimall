@@ -1,0 +1,80 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        #        - id: test_route
+        #          uri: https://www.baidu.com
+        #          predicates:
+        #            - Query=url,baidu
+        #
+        #        - id: qq_route
+        #          uri: https://www.qq.com
+        #          predicates:
+        #            - Query=url,qq
+
+
+        - id: product_route
+          uri: lb://naisimall-product
+          predicates:
+            - Path=/api/product/**,/hello
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        #third_party_route
+        - id: third_party_route
+          uri: lb://naisimall-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+          #http://localhost:88/api/thirdparty/oss/policy
+
+        #member配置
+        - id: member_route
+          uri: lb://naisimall-member
+          predicates:
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        #ware配置
+        - id: ware_route
+          uri: lb://naisimall-ware
+          predicates:
+            - Path=/api/ware/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        #renren_fast_admin
+        - id: admin_route
+          uri: lb://renren-fast:8080
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+
+        - id: naisimall_host_route
+          uri: lb://naisimall-product
+          predicates:
+            - Host=naisimall.com,item.naisimall.com
+
+        - id: naisimall_search_route
+          uri: lb://naisimall-search
+          predicates:
+            - Host=search.naisimall.com
+
+        - id: naisimall_auth_route
+          uri: lb://naisimall-auth-server
+          predicates:
+            - Host=auth.naisimall.com
+
+        - id: naisimall_cart_route
+          uri: lb://naisimall-cart
+          predicates:
+            - Host=cart.naisimall.com
+
+        - id: naisimall_order_route
+          uri: lb://naisimall-order
+          predicates:
+            - Host=order.naisimall.com
+
+          #前端项目,/api
+          #http://localhost:88/api/captcha.jsp  http://localhosy:8080/renren-fast/captcha.jps
