@@ -6,14 +6,14 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
     alicloud:
-      access-key: LTAI5tSqdQTPQ2m5JRJwP54x
-      secret-key: VpSt7YNZzgAYXaZxUDZYqoWP1e6tYE
+      access-key: ${test}
+      secret-key: ${test}
       oss:
         endpoint: oss-cn-beijing.aliyuncs.com
         bucket: naisimall
       sms:
-        accessKeyId: LTAI4FmBJKHvgxTwrU61E883
-        accessKeySecret: Ilrn65B4hA6AGLA9IbKu3HpYA7jSBu
+        accessKeyId: ${test}
+        accessKeySecret: ${test}
         signName: 欧巴学院在线教育网站
         templateCode: SMS_185246556
 
