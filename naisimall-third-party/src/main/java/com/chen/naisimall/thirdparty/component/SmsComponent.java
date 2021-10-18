@@ -49,7 +49,7 @@ public class SmsComponent {
 
     public static void main(String[] args_) throws Exception {
         java.util.List<String> args = java.util.Arrays.asList(args_);
-        com.aliyun.dysmsapi20170525.Client client = SmsComponent.createClient("LTAI4FmBJKHvgxTwrU61E883", "Ilrn65B4hA6AGLA9IbKu3HpYA7jSBu");
+        com.aliyun.dysmsapi20170525.Client client = SmsComponent.createClient("LTAI4FmBJK1E883", "Ilr9IbKu3HpYA7jSBu");
         SendSmsRequest sendSmsRequest = new SendSmsRequest()
                 .setPhoneNumbers("13292122993")
                 .setSignName("欧巴学院在线教育网站")
